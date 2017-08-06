@@ -52,7 +52,13 @@ var renderedHTML=`<!doctype html>
         </hr>
         <div id="comment">
         <input type="text" name="commentBox" placeholder="Enter comments here"/>
+        <button id="submit">Fetch Comments</button>
+        <ul id="fillComments" >
+            <li></li>
+            <li></li>
+        </ul>
         </div>
+        
         <script type="text/javascript" src="/ui/main.js">
         </script>
     </body>
