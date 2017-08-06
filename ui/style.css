@@ -19,4 +19,7 @@ body {
 .img-medium {
     height: 200px;
 }
-
+.myStyle{
+    font-style:italic;
+    font-family:Comic Sans MS;
+}
