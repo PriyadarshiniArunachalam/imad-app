@@ -36,7 +36,7 @@ var renderedHTML=`<!doctype html>
             ${title}
         </title>
         <link href="/ui/style.css" rel="stylesheet" />
-         <script src="/ui/main.js" />
+         <script src="main.js" />
     </head>
     <body>
         <div class="myStyle">
