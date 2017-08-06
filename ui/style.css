@@ -22,4 +22,6 @@ body {
 .myStyle{
     font-style:italic;
     font-family:Comic Sans MS;
+    font-size:200%;
+    color:pink;
 }
