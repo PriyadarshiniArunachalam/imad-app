@@ -32,9 +32,9 @@ function htmlElement(articleData){
 var renderedHTML=`<!doctype html>
 <html>
     <head>
-        <tiltle>
+        <title>
             ${title}
-        </tiltle>
+        </title>
         <link href="/ui/style.css" rel="stylesheet" />
     </head>
     <body>
@@ -55,7 +55,7 @@ var renderedHTML=`<!doctype html>
 return renderedHTML;
 }
 
-app.get('\:articleName',function(req,res){
+app.get('/:articleName',function(req,res){
     var articleName=req.params.articleName;
     res.send(htmlElement(articles[articleName]));
 });
