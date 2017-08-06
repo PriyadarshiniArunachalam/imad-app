@@ -12,15 +12,15 @@ var articles={
       "content":'<p> This is article one</p> '
   },
   "article-two":{
-      "title":'Displaying first article.',
-      "heading":'Article-one',
-      "content":'<p> This is article one</p> '
+      "title":'Displaying second article.',
+      "heading":'Article-two',
+      "content":'<p> This is article two</p> '
       
   },
   "article-three":{
-      "title":'Displaying first article.',
-      "heading":'Article-one',
-      "content":'<p> This is article one</p> '
+      "title":'Displaying third article.',
+      "heading":'Article-three',
+      "content":'<p> This is article three</p> '
       
   }
 };
@@ -36,6 +36,7 @@ var renderedHTML=`<!doctype html>
             ${title}
         </title>
         <link href="/ui/style.css" rel="stylesheet" />
+         <link href="/ui/main.js" rel="text/javascript" />
     </head>
     <body>
         <div class="myStyle">
@@ -48,12 +49,28 @@ var renderedHTML=`<!doctype html>
         <div class="center text-big bold">
           ${content}
         </div>
+        </hr>
+        <div id="comment">
+        <input type="text" name="commentBox" placeholder="Enter comments here"/>
+        </div>
         <script type="text/javascript" src="/ui/main.js">
         </script>
     </body>
 </html>`;
 return renderedHTML;
 }
+
+var comments=[];
+function addComments(comment){
+    comments.push(comment);
+    return comments;
+}
+
+app.get('/addComments', function(req,res){
+    var commentText=req.query.comment;
+    var commentList=addComments(commentText);  
+    res.send(JSON.stringify(commentList));
+});
 
 app.get('/:articleName',function(req,res){
     var articleName=req.params.articleName;
@@ -71,6 +88,7 @@ app.get('/ui/style.css', function (req, res) {
 app.get('/ui/madi.png', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
 });
+
 
 
 // Do not change port, otherwise your app won't run on IMAD servers
